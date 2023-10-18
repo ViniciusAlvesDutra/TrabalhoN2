@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<div class="house">
+        <div class="room kitchen">Cozinha</div>
+        <div class="room living-room">Sala de Estar</div>
+        <div class="room bedroom">Quarto Principal</div>
+        <div class="room bathroom">Banheiro</div>
+        <div class="room dining-room">Sala de Jantar</div>
+    </div>
+    <div class="room-info">
+        <h2>Sala de Estar</h2>
+        <div class="circuit on" onclick="toggleCircuit(this)">Tomadas</div>
+        <div class="circuit off" onclick="toggleCircuit(this)">Lâmpadas</div>
+        <p>Circuitos ligados: <span id="sala_estar_on">0</span></p>
+        <p>Circuitos desligados: <span id="sala_estar_off">0</span></p>
+        <button onclick="toggleAllCircuits('sala_estar')">Alternar Todos</button>
+    </div>
+    <div class="room-info">
+        <h2>Quarto Principal</h2>
+        <div class="circuit on" onclick="toggleCircuit(this)">Tomadas</div>
+        <div class="circuit on" onclick="toggleCircuit(this)">Lâmpadas</div>
+        <p>Circuitos ligados: <span id="quarto_principal_on">0</span></p>
+        <p>Circuitos desligados: <span id="quarto_principal_off">0</span></p>
+        <button onclick="toggleAllCircuits('quarto_principal')">Alternar Todos</button>
+    </div>
+    <div class="room-info">
+        <h2>Cozinha</h2>
+        <div class="circuit on" onclick="toggleCircuit(this)">Tomadas</div>
+        <div class="circuit off" onclick="toggleCircuit(this)">Lâmpadas</div>
+        <p>Circuitos ligados: <span id="cozinha_on">0</span></p>
+        <p>Circuitos desligados: <span id="cozinha_off">0</span></p>
+        <button onclick="toggleAllCircuits('cozinha')">Alternar Todos</button>
+    </div>
+    <div class="room-info">
+        <h2>Sala de Jantar</h2>
+        <div class="circuit on" onclick="toggleCircuit(this)">Tomadas</div>
+        <div class="circuit off" onclick="toggleCircuit(this)">Lâmpadas</div>
+        <p>Circuitos ligados: <span id="quarto_hospedes_on">0</span></p>
+        <p>Circuitos desligados: <span id="quarto_hospedes_off">0</span></p>
+        <button onclick="toggleAllCircuits('quarto_hospedes')">Alternar Todos</button>
+    </div>
+    <div class="room-info">
+        <h2>Banheiro</h2>
+        <div class="circuit off" onclick="toggleCircuit(this)">Tomadas</div>
+        <div class="circuit off" onclick="toggleCircuit(this)">Lâmpadas</div>
+        <p>Circuitos ligados: <span id="banheiro_on">0</span></p>
+        <p>Circuitos desligados: <span id="banheiro_off">0</span></p>
+        <button onclick="toggleAllCircuits('banheiro')">Alternar Todos</button>
+    </div>
+
+  <script src="script.js"></script>
+  <script>
+        function toggleCircuit(element) {
+            if (element.classList.contains("on")) {
+                element.classList.remove("on");
+                element.classList.add("off");
+            } else {
+                element.classList.remove("off");
+                element.classList.add("on");
+            }
+            updateCircuitCounts();
+        }
+
+        function updateCircuitCounts() {
+            const rooms = ['sala_estar', 'quarto_principal', 'cozinha', 'quarto_hospedes', 'banheiro'];
+            rooms.forEach(room => {
+                const onCount = document.querySelectorAll(`.${room} .on`).length;
+                const offCount = document.querySelectorAll(`.${room} .off`).length;
+                document.getElementById(`${room}_on`).textContent = onCount;
+                document.getElementById(`${room}_off`).textContent = offCount;
+            });
+        }
+
+        function toggleAllCircuits(room) {
+            const circuits = document.querySelectorAll(`.${room} .circuit`);
+            circuits.forEach(circuit => {
+                toggleCircuit(circuit);
+            });
+        }
+
+        updateCircuitCounts();
+          </script>
+</body>
+</html>

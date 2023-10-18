@@ -1,0 +1,86 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+        .house {
+            width: 450px;
+            height: 350px;
+            background-color: #c0c0c0;
+            position: relative;
+        }
+
+        .room {
+            position: absolute;
+            border: 1px solid #000;
+        }
+
+        .kitchen {
+            width: 150px;
+            height: 150px;
+            background-color: #ffcc99;
+            left: 100px;
+            top: 50px;
+        }
+
+        .living-room {
+            width: 200px;
+            height: 150px;
+            background-color: #66ccff;
+            left: 200px;
+            top: 50px;
+        }
+
+        .bedroom {
+            width: 150px;
+            height: 200px;
+            background-color: #ff99cc;
+            left: 50px;
+            top: 100px;
+        }
+
+        .bathroom {
+            width: 65px;
+            height: 100px;
+            background-color: #99ff99;
+            left: 100px;
+            top: 150px;
+        }
+
+        .dining-room {
+            width: 100px;
+            height: 100px;
+            background-color: #ffcc66;
+            left: 200px;
+            top: 200px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .room-info {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .room-info h2 {
+            margin: 0;
+        }
+
+        .circuit {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .on {
+            background-color: green;
+            color: white;
+        }
+
+        .off {
+            background-color: red;
+            color: white;
+        }
